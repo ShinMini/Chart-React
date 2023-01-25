@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: space-around;
+
+  padding-horizontal: 30px;
+}
+
+.inputButton {
+  width: 15%;
+  height: 100px;
+
+  font-size: 2em;
+
+  padding-horizontal: 40px;
+
+  margin-top: 30px;
+
+  border-radius: 10px;
+
+  color: black;
+  background-color: #b8c0ff;
+
+  cursor: pointer;
+}
+
+.inputButton:hover {
+color: yellow;
+}
+
+.inputChartData {
+  width: 80%;
+  height: 60px;
+
+  align-self: center;
+  font-size: 2.5em;
+
+  padding: 20px;
+
+  background-color: antiquewhite;
+
+  margin-top: 30px;
+
+  border-radius: 15px;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+}
