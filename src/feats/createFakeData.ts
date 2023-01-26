@@ -1,83 +1,55 @@
-import createRandomColor, {CreateRandomColorProps} from "./createRandomColor";
-import faker from "faker";
-import {ChartData, ChartDataset} from "chart.js";
+import z from 'zod'
+import createRandomColor from './createRandomColor'
+import faker from 'faker'
+import { ChartData, ChartDataset } from 'chart.js'
+import colorSet from '@colorSet'
+import { ChartTypes } from '@/types/chart'
 
-const monthLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const monthLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
 const sexLabels = ['남성', '여성', '알 수 없음']
 const carLabels = ['HyunDai', 'Kia', 'Tesla', 'Benz', 'BMW', 'Audi']
 
-const randomLabels = [monthLabels, sexLabels, carLabels ]
-
-const color1: CreateRandomColorProps = { labels: monthLabels, config: {isDefault: true, colorSet: 1} }
-const color2: CreateRandomColorProps = { labels: monthLabels, config: {isDefault: true, colorSet: 2} }
-const color3: CreateRandomColorProps = { labels: monthLabels }
-
-const colorSet =  ["#70cbf4", 'rgba(203, 198, 240, 0.5)','#eae4e9', '#fff1e6', '#fde2e4', '#fad2e1', '#e2ece9', '#bee1e6', '#f0efeb', '#dfe7fd', '#cddafd ']
+const randomLabels = [monthLabels, sexLabels, carLabels]
 
 
-const defaultColorSet = [createRandomColor(color1), createRandomColor(color2)]
-const defaultColorSet2 = createRandomColor(color2);
+const CreateFakeDataProps = z.object({
+	labels: z.array(z.string()).optional(),
+	createNum: z.number().min(1, { message: 'createNum must be greater than 1' }).optional(),
+	randomColor: z.boolean().optional()
+})
 
-type createFakeDataProps = {
-  labels?: Array<string>
-  createNum?: number
-  randomColor? : boolean
-}
+function createFakeData<T extends ChartTypes>({ labels = monthLabels, createNum = 3, randomColor = false }: z.infer<typeof CreateFakeDataProps>): ChartData<T> {
 
-function createFakeData ({labels = monthLabels, createNum = 3, randomColor = false}: createFakeDataProps): ChartData {
+	const datasets = Array<ChartDataset<T>>(createNum)
+		.fill({
+			label: '',
+			data: [],
+			backgroundColor: [],
+			borderWidth: 0
+		})
+		.map((value, index) => {
+			const maxNum = index === 2 ? 4000 : 12000
+			const randomData = labels.map(() => faker.datatype.number({ min: 0, max: maxNum }))
+			const randomColorSet = createRandomColor(labels.length)
 
-  const datasets = Array<ChartDataset>(createNum)
-    .fill({
-      label: '',
-      data: [],
-      backgroundColor: [],
-      borderWidth: 0
-    })
-    .map((value, index) => {
-        const maxNum = index === 2 ? 300 : 1000
-        const randomData = labels.map(() => faker.datatype.number({ min: 0, max: maxNum }))
-        return {
-          label : sexLabels.at(index),
-          data : randomData,
-          backgroundColor : (randomColor) ? defaultColorSet.at(index): colorSet.at(index),
-          borderWidth : index
-        }
-      }
-    )
+			return {
+				label: sexLabels.at(index),
+				data: randomData,
+				backgroundColor: (randomColor) ? randomColorSet?.at(index) : colorSet.above.at(index),
+				borderWidth: index,
+				fill: {
+					target: 'origin',
+					above: colorSet.above.at(index),   // Area will be red above the origin
+					below: colorSet.below.at(index)// And blue below the origin
+				}
+			}
+		}
+		)
 
-  return {
-    labels,
-    datasets
-  }
+	return {
+		labels,
+		datasets
+	}
 }
 
 export default createFakeData
-
-/** temp user data
- * : [
- *       {
- *         label: 'Sample data 1',
- *         data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
- *         backgroundColor: defaultColorSet,
- *       },
- *       {
- *         label: 'Sample data 2',
- *         data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
- *         backgroundColor: defaultColorSet2,
- *         borderWidth: 2,
- *         borderColor: '#111111',
- *       },
- *     ],
- *
- const spendMoney = UserData.spendMoney
- const users = UserData.users
- const randomColor = createRandomColor(users);
-
- const userData = {
-  labels: spendMoney,
-  datasets: [{
-    data: users,
-    backgroundColor: randomColor,
-  }]
-}
- */

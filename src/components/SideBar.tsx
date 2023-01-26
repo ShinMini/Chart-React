@@ -1,28 +1,27 @@
-import React, {useState} from 'react';
+import React from 'react'
 
-import {SideBarProps} from '../types/header.types';
-import {ChartTypes} from "../types/chart.types";
+import {SideBarProps} from '@/types/sidebar'
+import {UsingChart} from '@/types/chart'
 
-import '../styles/css/SideBar.styles.css';
-import {SideBarContainer, SideBarContent} from '../styles/SideBar.styled';
+import {SideBarContainer, SideBarContent} from '@/styles/SideBar.styled'
 
-const SideBarComponents: React.FC<SideBarProps<ChartTypes>> = ({activeChart, onClickChart}) => {
-  const onClick = () => onClickChart(activeChart)
+const SideBarComponents: React.FC<SideBarProps<UsingChart>> = ({chartName, onClickChart}) => {
+	const onClick = () => onClickChart(chartName)
 
-  return <SideBarContent onClick={onClick}> {activeChart.toUpperCase()} </SideBarContent>
+	return <SideBarContent onClick={onClick}> {chartName.toUpperCase()} </SideBarContent>
 }
 
-const SideBar: React.FC<SideBarProps<ChartTypes>> = ({activeChart, onClickChart}) => {
-  return (
-    <SideBarContainer>
-      <SideBarComponents activeChart={ChartTypes.BAR} onClickChart={onClickChart} />
-      <SideBarComponents activeChart={ChartTypes.LINE} onClickChart={onClickChart} />
-      <SideBarComponents activeChart={ChartTypes.DOUGHNUT} onClickChart={onClickChart} />
-      <SideBarComponents activeChart={ChartTypes.RADAR} onClickChart={onClickChart} />
-    </SideBarContainer>
-  );
+const SideBar: React.FC<Pick<SideBarProps<UsingChart>, 'onClickChart'>> = ({onClickChart}) => {
+	return (
+		<SideBarContainer>
+			<SideBarComponents chartName={'bar'} onClickChart={onClickChart} />
+			<SideBarComponents chartName={'line'} onClickChart={onClickChart} />
+			<SideBarComponents chartName={'doughnut'} onClickChart={onClickChart} />
+			<SideBarComponents chartName={'radar'} onClickChart={onClickChart} />
+		</SideBarContainer>
+	)
 }
 
 
 
-export default SideBar;
+export default SideBar
