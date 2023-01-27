@@ -19,6 +19,7 @@
      "@/*": [ "./src/*" ],
      "@css" : ["./src/index.css"],
      "@colorSet" : ["./src/utils/colorSet"],
+     "@compo/*" : ["./src/components/*"],
      "assets/*": ["./assets/*"],
     }
   },

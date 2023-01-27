@@ -1,9 +1,8 @@
 import React from 'react'
 
-import {SideBarProps} from '@/types/sidebar'
-import {UsingChart} from '@/types/chart'
+import {UsingChart, SideBarProps} from '@/types/chart'
 
-import {SideBarContainer, SideBarContent} from '@/styles/SideBar.styled'
+import {SideBarContainer, SideBarContent} from '@/styles/chart.styles'
 
 const SideBarComponents: React.FC<SideBarProps<UsingChart>> = ({chartName, onClickChart}) => {
 	const onClick = () => onClickChart(chartName)

@@ -9,9 +9,6 @@ const monthLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'Ju
 const sexLabels = ['남성', '여성', '알 수 없음']
 const carLabels = ['HyunDai', 'Kia', 'Tesla', 'Benz', 'BMW', 'Audi']
 
-const randomLabels = [monthLabels, sexLabels, carLabels]
-
-
 const CreateFakeDataProps = z.object({
 	labels: z.array(z.string()).optional(),
 	createNum: z.number().min(1, { message: 'createNum must be greater than 1' }).optional(),
@@ -20,7 +17,7 @@ const CreateFakeDataProps = z.object({
 
 function createFakeData<T extends ChartTypes>({ labels = monthLabels, createNum = 3, randomColor = false }: z.infer<typeof CreateFakeDataProps>): ChartData<T> {
 
-	const datasets = Array<ChartDataset<T>>(createNum)
+	const datasets = Array<ChartDataset>(createNum)
 		.fill({
 			label: '',
 			data: [],

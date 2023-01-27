@@ -1,14 +1,9 @@
-/** @Author {ShinMini}
+/* esAuthor {ShinMini}
  * @ChartType
  * */
+import { Dispatch, SetStateAction } from 'react'
 import { ChartData, ChartTypeRegistry } from 'chart.js'
 import z from 'zod'
-
-/** Chart Screen Type */
-export type ChartViewProps = { chartType: ChartTypes };
-
-export type UsingChart = keyof Omit<ChartTypeRegistry, 'pie' | 'polarArea' | 'scatter' | 'bubble'>
-
 
 const UseChart = z.enum([
     'bar',
@@ -16,15 +11,26 @@ const UseChart = z.enum([
     'doughnut',
     'radar',
 ])
+
 export type ChartTypes = z.infer<typeof UseChart>
+export type UsingChart = keyof Omit<ChartTypeRegistry, 'pie' | 'polarArea' | 'scatter' | 'bubble'>
+
+/** ------------ Chart Screen Type --------------------------*/
+export type ChartViewProps = { chartType: ChartTypes };
 
 export type ChartState = {
     isSample: boolean
     data: ChartData<ChartTypes>
 }
 
-/** Bar Type - deprecated */
+/** ------------ Chart Components Type ----------------------*/
 export type ChartComponentProps = {
     chartType: ChartTypes;
     chartData: ChartData;
 }
+
+//** --------- Chart SideBar -------------*/
+export type SideBarProps<T extends UsingChart> = {
+    chartName: T;
+    onClickChart: Dispatch<SetStateAction<T>>;
+};

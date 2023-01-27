@@ -1,8 +1,8 @@
 import React, {useContext} from 'react'
 import {Bar,  Doughnut, Line,  Radar } from 'react-chartjs-2'
-import {ChartComponentProps, ChartTypes} from '@/types/chart'
+import {ChartComponentProps} from '@/types/chart'
 import {ChartData, ChartOptions } from 'chart.js'
-import {Options} from '../App'
+import {Options} from '@/screens/ChartView'
 
 const Chart = ({chartType, chartData}: ChartComponentProps) => {
 	const options = useContext(Options)
