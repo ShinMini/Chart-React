@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: Pretendard;
-  src: url('./assets/fonts/pretendard/public/static/alternative/Pretendard-Regular.ttf');
+  src: url("./assets/fonts/pretendard/public/static/alternative/Pretendard-Regular.ttf");
 }
 
 * {
@@ -30,10 +30,6 @@
 
 input {
   color: white;
-}
-
-.App {
-  margin-left: 15px;
 }
 
 a {
