@@ -1,11 +1,15 @@
 # Chart js, About Data Analysis Web App
 
-* [English](#English)
-* [한국어](#Korean)
+* [English](#english)
+* [한국어](#한국어)
 
 ---
 
-## Table of Contents <a href="English" />
+### English
+
+---
+
+## Table of Contents
 
 - [Getting Started](#getting_started)
 - [Usage](#usage)
@@ -176,16 +180,15 @@
 
 - [ShinMini](https://github.com/ShinMini/ChartJS)
 
+[Up To Top](#english)
+
 ----------------
 
-
-
-
-
+### 한국어
 
 --------------
 
-## 목차 <a href="Korean" />
+## 목차
 
 - [시작하기](#getting_started)
 - [사용법](#usage)
@@ -364,3 +367,7 @@
 
 - [ShinMini](https://github.com/ShinMini/ChartJS)
 - 신현민입니다.
+
+[Up To Top](#한국어)
+
+---
