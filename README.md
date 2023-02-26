@@ -89,7 +89,7 @@
 
 ```bash
 # bash or zsh
-	cd ChartJS
+	cd Make_Chart_Web_App
 ```
 
 ### 5. Install the project's needed dependencies with yarn
@@ -292,7 +292,7 @@
 
 ```bash
 # bash or zsh
-	cd ~/ChartJS
+	cd ~/Make_Chart_Web_App
 ```
 
 ### 5. 프로젝트 빌드에 필요한 라이브러리를 yarn을 사용해 설치
