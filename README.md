@@ -1,4 +1,4 @@
-# Chart js, About Data Analysis Web App
+# Chart.js Application with React, for Data Analysis
 
 * [English](#english)
 * [한국어](#한국어)
@@ -54,7 +54,7 @@
 
 ``` bash
 # bash or zsh
-	git clone https://github.com/ShinMini/ChartJS.git
+	git clone https://github.com/ShinMini/Chart-React.git
 ```
 
 ### 2. Install the Node.js
@@ -89,7 +89,7 @@
 
 ```bash
 # bash or zsh
-	cd Make_Chart_Web_App
+	cd Chart-React
 ```
 
 ### 5. Install the project's needed dependencies with yarn
@@ -199,7 +199,7 @@
 
 ## Author
 
-- [ShinMini](https://github.com/ShinMini/ChartJS)
+- [ShinMini](https://github.com/ShinMini)
 
 [Up To Top](#english)
 
@@ -255,7 +255,7 @@
 ``` bash
 # bash or zsh
 	cd ~
-	git clone https://github.com/ShinMini/ChartJS.git
+	git clone https://github.com/ShinMini/Chart-React.git
 ```
 
 ### 2. Node.js 설치
@@ -292,7 +292,7 @@
 
 ```bash
 # bash or zsh
-	cd ~/Make_Chart_Web_App
+	cd ~/Chart-React
 ```
 
 ### 5. 프로젝트 빌드에 필요한 라이브러리를 yarn을 사용해 설치
@@ -402,7 +402,7 @@
 
 ## 작성자
 
-- [ShinMini](https://github.com/ShinMini/ChartJS)
+- [ShinMini](https://github.com/ShinMini)
 - 신현민입니다.
 
 [Up To Top](#한국어)
